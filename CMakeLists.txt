@@ -8,7 +8,7 @@ set(CPPLINT_ARG_OUTPUT      "--output=eclipse")
 set(CPPCHECK_ARG_TEMPLATE   "--template=gcc")
 # Useful compile flags and extra warnings
 add_compile_options(-fstack-protector -Wall -Wextra -Wpedantic -Wno-long-long -Wswitch-enum -Wshadow -Winline)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-c++0x-compat") # C++ only
+# set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-c++0x-compat") # C++ only
 if (CMAKE_COMPILER_IS_GNUCXX)
     # GCC flags
     if (LCD_USE_GCOV AND CMAKE_COMPILER_IS_GNUCXX)
@@ -51,7 +51,7 @@ endif ()
 set(LCD_SRC
  ${PROJECT_SOURCE_DIR}/src/I2CIO.cpp
  ${PROJECT_SOURCE_DIR}/src/LCD.cpp
- ${PROJECT_SOURCE_DIR}/src/LiquidCrystal.cpp
+#  ${PROJECT_SOURCE_DIR}/src/LiquidCrystal.cpp
  ${PROJECT_SOURCE_DIR}/src/LiquidCrystal_I2C.cpp
  ${PROJECT_SOURCE_DIR}/src/smbus.c
 )
@@ -61,7 +61,7 @@ source_group(src FILES ${LCD_SRC})
 set(LCD_INC
  ${PROJECT_SOURCE_DIR}/include/I2CIO.h
  ${PROJECT_SOURCE_DIR}/include/LCD.h
- ${PROJECT_SOURCE_DIR}/include/LiquidCrystal.h
+#  ${PROJECT_SOURCE_DIR}/include/LiquidCrystal.h
  ${PROJECT_SOURCE_DIR}/include/LiquidCrystal_I2C.h
  ${PROJECT_SOURCE_DIR}/include/smbus.h
 )
