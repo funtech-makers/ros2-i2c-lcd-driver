@@ -4,6 +4,7 @@ SRC=src/I2CIO.cpp src/LCD.cpp src/LiquidCrystal_I2C.cpp src/smbus.c
 OBJ=$(patsubst %.cpp,%.o,$(filter %.cpp,$(SRC))) $(patsubst %.c,%.o,$(filter %.c,$(SRC)))
 STATIC=libliquidcrystali2c.a
 LDFLAGS=
+CPPFLAGS=-Iinclude
 
 CC=g++
 
