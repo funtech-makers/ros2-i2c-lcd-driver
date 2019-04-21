@@ -1,5 +1,5 @@
-HEADERS=I2CIO.h LCD.h LiquidCrystal_I2C.h smbus.h
-SRC=I2CIO.cpp LCD.cpp LiquidCrystal_I2C.cpp smbus.c
+HEADERS=src/I2CIO.h src/LCD.h src/LiquidCrystal_I2C.h src/smbus.h
+SRC=src/I2CIO.cpp src/LCD.cpp src/LiquidCrystal_I2C.cpp src/smbus.c
 
 OBJ=$(patsubst %.cpp,%.o,$(filter %.cpp,$(SRC))) $(patsubst %.c,%.o,$(filter %.c,$(SRC)))
 STATIC=libliquidcrystali2c.a
@@ -11,7 +11,7 @@ PREFIX=/usr/local
 
 all: static test-lcd
 
-main.o: main.cpp
+main.o: examples/main.cpp
 
 test-lcd: main.o $(OBJ) 
 	$(CC) -o test-lcd main.o $(OBJ)
