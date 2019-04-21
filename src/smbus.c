@@ -23,7 +23,7 @@
 
 #include <errno.h>
 #include <stddef.h>
-#include "smbus.h"
+#include "../include/smbus.h"
 #include <sys/ioctl.h>
 #include <linux/types.h>
 #include <linux/i2c.h>

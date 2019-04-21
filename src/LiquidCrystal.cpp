@@ -30,7 +30,7 @@
 #include <string.h>
 #include <inttypes.h>
 
-#include "LiquidCrystal.h"
+#include "../include/LiquidCrystal.h"
 
 // CONSTANT  definitions
 // ---------------------------------------------------------------------------

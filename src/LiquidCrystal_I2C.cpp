@@ -29,8 +29,8 @@
 // ---------------------------------------------------------------------------
 
 #include <inttypes.h>
-#include "I2CIO.h"
-#include "LiquidCrystal_I2C.h"
+#include "../include/I2CIO.h"
+#include "../include/LiquidCrystal_I2C.h"
 
 // CONSTANT  definitions
 // ---------------------------------------------------------------------------

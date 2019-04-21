@@ -37,7 +37,7 @@
 #include <inttypes.h>
 #include <time.h>
 
-#include "LCD.h"
+#include "../include/LCD.h"
 
 // CLASS CONSTRUCTORS
 // ---------------------------------------------------------------------------

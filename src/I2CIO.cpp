@@ -32,8 +32,8 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <linux/i2c-dev.h>
-#include "I2CIO.h"
-#include "smbus.h"
+#include "../include/I2CIO.h"
+#include "../include/smbus.h"
 
 // CLASS VARIABLES
 // ---------------------------------------------------------------------------
