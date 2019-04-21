@@ -1,4 +1,4 @@
-HEADERS=src/I2CIO.h src/LCD.h src/LiquidCrystal_I2C.h src/smbus.h
+HEADERS=include/I2CIO.h include/LCD.h include/LiquidCrystal_I2C.h include/smbus.h
 SRC=src/I2CIO.cpp src/LCD.cpp src/LiquidCrystal_I2C.cpp src/smbus.c
 
 OBJ=$(patsubst %.cpp,%.o,$(filter %.cpp,$(SRC))) $(patsubst %.c,%.o,$(filter %.c,$(SRC)))
@@ -14,7 +14,7 @@ all: static test-lcd
 main.o: examples/main.cpp
 
 test-lcd: main.o $(OBJ) 
-	$(CC) -o test-lcd main.o $(OBJ)
+	$(CC) -Iinclude -o test-lcd main.o $(OBJ)
 
 static:	$(STATIC)
 
