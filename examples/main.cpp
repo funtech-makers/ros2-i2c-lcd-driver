@@ -4,7 +4,7 @@
  ** Author: Kaj-Michael Lang <milang@tal.org>
  ** Copyright 2014 - Under creative commons license 3.0 Attribution-ShareAlike CC BY-SA
  **/
-#include "../src/LiquidCrystal_I2C.h"
+#include "../include/LiquidCrystal_I2C.h"
 
 int main (int argc, char *argv []) {
 // i2c address

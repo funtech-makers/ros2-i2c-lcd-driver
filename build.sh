@@ -11,7 +11,7 @@ mkdir -p _build
 cd _build
 
 # Generate a Makefile for GCC (or Clang, depanding on CC/CXX envvar)
-cmake -DCMAKE_BUILD_TYPE=Debug -DLCD_USE_GCOV=OFF -DLCD_BUILD_EXAMPLES=ON  -DLCD_RUN_CPPCHECK=ON ..
+cmake -DCMAKE_BUILD_TYPE=Debug -DLCD_USE_GCOV=OFF -DLCD_BUILD_EXAMPLES=ON -DLCD_RUN_CPPLINT=OFF ..
 
 # Build (ie 'make')
 cmake --build .
