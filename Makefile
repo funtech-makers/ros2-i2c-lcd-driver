@@ -12,10 +12,10 @@ PREFIX=/usr/local
 
 all: static test-lcd
 
-main.o: examples/main.cpp
+exmaples/main.o: examples/main.cpp
 
-test-lcd: main.o $(OBJ) 
-	$(CC) -Iinclude -o test-lcd main.o $(OBJ)
+test-lcd: examples/main.o $(OBJ) 
+	$(CC) -Iinclude -o test-lcd examples/main.o $(OBJ)
 
 static:	$(STATIC)
 
