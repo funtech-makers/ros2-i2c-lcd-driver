@@ -11,7 +11,7 @@ add_compile_options(-fstack-protector -Wall -Wextra -Wpedantic -Wno-long-long -W
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-c++0x-compat") # C++ only
 if (CMAKE_COMPILER_IS_GNUCXX)
     # GCC flags
-    if (SQLITECPP_USE_GCOV AND CMAKE_COMPILER_IS_GNUCXX)
+    if (LCD_USE_GCOV AND CMAKE_COMPILER_IS_GNUCXX)
         if (CMAKE_BUILD_TYPE STREQUAL "Debug")
             message (STATUS "Using GCov instrumentation")
         else ()
@@ -78,7 +78,7 @@ source_group(examples FILES ${LCD_EXAMPLES})
 # All includes are relative to the "include" directory
 include_directories("${PROJECT_SOURCE_DIR}/include")
 
-# add sources of the wrapper as a "SQLiteCpp" static library
+# add sources of the wrapper as a "lcd" static library
 add_library(lcd ${LCD_SRC} ${LCD_INC})
 
 # Optional additional targets:
@@ -133,8 +133,8 @@ endif (LCD_RUN_DOXYGEN)
 option(LCD_BUILD_EXAMPLES "Build examples." OFF)
 if (LCD_BUILD_EXAMPLES)
     # add the basic example executable
-    add_executable(LCD_example1 ${LCD_EXAMPLES})
-    target_link_libraries(LCD_example1 lcd)
+    add_executable(LCD_example1 ${LCD_EXAMPLES} ${LCD_SRC} ${LCD_INC})
+    # target_link_libraries(LCD_example1 lcd)
 
 else (LCD_BUILD_EXAMPLES)
     message(STATUS "LCD_BUILD_EXAMPLES OFF")
