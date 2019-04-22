@@ -131,8 +131,8 @@ endif (LCD_RUN_DOXYGEN)
 option(LCD_BUILD_EXAMPLES "Build examples." OFF)
 if (LCD_BUILD_EXAMPLES)
     # add the basic example executable
-    add_executable(LCD_example1 ${LCD_EXAMPLES} ${LCD_SRC} ${LCD_INC})
-    # target_link_libraries(LCD_example1 lcd)
+    add_executable(LCD_example1 ${LCD_EXAMPLES})
+    target_link_libraries(LCD_example1 lcd)
 
 else (LCD_BUILD_EXAMPLES)
     message(STATUS "LCD_BUILD_EXAMPLES OFF")
