@@ -53,7 +53,7 @@ set(LCD_SRC
  ${PROJECT_SOURCE_DIR}/src/LCD.cpp
 #  ${PROJECT_SOURCE_DIR}/src/LiquidCrystal.cpp
  ${PROJECT_SOURCE_DIR}/src/LiquidCrystal_I2C.cpp
- ${PROJECT_SOURCE_DIR}/src/smbus.c
+#  ${PROJECT_SOURCE_DIR}/src/smbus.c
 )
 source_group(src FILES ${LCD_SRC})
 
@@ -63,7 +63,7 @@ set(LCD_INC
  ${PROJECT_SOURCE_DIR}/include/LCD.h
 #  ${PROJECT_SOURCE_DIR}/include/LiquidCrystal.h
  ${PROJECT_SOURCE_DIR}/include/LiquidCrystal_I2C.h
- ${PROJECT_SOURCE_DIR}/include/smbus.h
+#  ${PROJECT_SOURCE_DIR}/include/smbus.h
 )
 source_group(include FILES ${LCD_INC})
 
