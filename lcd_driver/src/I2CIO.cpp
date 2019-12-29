@@ -26,7 +26,7 @@
 // ---------------------------------------------------------------------------
 
 #include "I2CIO.h"
-// #include "smbus.h"
+#include "smbus.h"
 #include <fcntl.h>
 #include <inttypes.h>
 #include <linux/i2c-dev.h>
