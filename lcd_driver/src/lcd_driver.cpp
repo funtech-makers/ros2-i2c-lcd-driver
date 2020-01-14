@@ -17,7 +17,7 @@ I2C_LCD::I2C_LCD() : Node("lcd_driver") {
   /* Init ROS Publishers and Subscribers */
   auto qos = rclcpp::QoS(rclcpp::KeepLast(10));
 
-  lcd_driver_text_sub_ = this->create_subscription<lcd_msgs::msg::Lcd>("lcd_text", qos, std::bind(&I2C_LCD::msg_text_callback, this, std::placeholders::_1));
+  lcd_driver_text_sub_ = this->create_subscription<lcd_msgs::msg::Lcd>("lcd", qos, std::bind(&I2C_LCD::msg_text_callback, this, std::placeholders::_1));
 
   RCLCPP_INFO(this->get_logger(), "LCD I2C driver initialised");
 }
@@ -45,7 +45,7 @@ void I2C_LCD::msg_text_callback(const lcd_msgs::msg::Lcd::SharedPtr msg) {
   this->lcd->setCursor(msg->line, msg->column);
   this->lcd->write(msg->text)
   #else
-  RCLCPP_INFO(this->get_logger(), "cursor(%d, %d) : text(%s)", (msg->line, msg->column, msg->text.c_str()));
+  RCLCPP_INFO(this->get_logger(), "cursor(%d, %d) : text(%s)", msg->line, msg->column, msg->text.c_str());
   #endif /* SIMULATION */
 }
 
