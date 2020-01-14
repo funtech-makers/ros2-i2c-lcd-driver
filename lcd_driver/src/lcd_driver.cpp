@@ -29,7 +29,7 @@ void I2C_LCD::init_parameters() {
   this->declare_parameter("i2c_addr");
 
   // Get parameters from yaml
-  this->get_parameter_or<int>("i2c_bus", i2c_bus, 2);
+  this->get_parameter_or<int>("i2c_bus", i2c_bus, 6);
   this->get_parameter_or<int>("i2c_addr", i2c_addr, 0x27);
 }
 
@@ -45,7 +45,7 @@ void I2C_LCD::msg_text_callback(const lcd_msgs::msg::Lcd::SharedPtr msg) {
   this->lcd->setCursor(msg->line, msg->column);
   this->lcd->write(msg->text)
   #else
-  RCLCPP_INFO(this->get_logger(), "LCD Text === %s ===", msg->text.c_str());
+  RCLCPP_INFO(this->get_logger(), "cursor(%d, %d) : text(%s)", (msg->line, msg->column, msg->text.c_str()));
   #endif /* SIMULATION */
 }
 
