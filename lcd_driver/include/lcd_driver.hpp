@@ -28,7 +28,7 @@ private:
   rclcpp::Subscription<lcd_msgs::msg::Lcd>::SharedPtr lcd_driver_text_sub_;
 
   void init_variables();
-  void init_parameters();
+  void init_lcd();
   void msg_text_callback(const lcd_msgs::msg::Lcd::SharedPtr msg);
 };
 
