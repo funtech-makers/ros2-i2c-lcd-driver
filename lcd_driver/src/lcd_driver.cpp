@@ -36,10 +36,10 @@ void I2C_LCD::init_parameters() {
 
 void I2C_LCD::init_lcd() {
   /* Initialize LCD */
-  this->lcd.begin(16, 2);
+  this->lcd->begin(16, 2);
 
-  this->lcd.on();
-  this->lcd.clear();
+  this->lcd->on();
+  this->lcd->clear();
 }
 
 void I2C_LCD::msg_text_callback(const lcd_msgs::msg::Lcd::SharedPtr msg) {
