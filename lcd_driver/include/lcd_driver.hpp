@@ -27,8 +27,8 @@ private:
   // ROS topic publishers
   rclcpp::Subscription<lcd_msgs::msg::Lcd>::SharedPtr lcd_driver_text_sub_;
 
-  void init_variables();
   void init_lcd();
+  void init_parameters();
   void msg_text_callback(const lcd_msgs::msg::Lcd::SharedPtr msg);
 };
 
