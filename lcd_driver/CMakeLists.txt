@@ -53,10 +53,6 @@ else()
   target_link_libraries(${EXEC_NAME} i2c)
 endif(SIMULATION)
 
-if(SPEEDRAMP)
-  add_definitions(-DUSE_SPEEDRAMP)
-endif(SPEEDRAMP)
-
 
 ament_target_dependencies(${EXEC_NAME} ${dependencies})
 
