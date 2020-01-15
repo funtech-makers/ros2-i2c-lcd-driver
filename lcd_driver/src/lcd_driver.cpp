@@ -6,7 +6,7 @@ I2C_LCD::I2C_LCD() : Node("lcd_driver") {
   init_parameters();
 
   /* Give variables their initial values */
-  init_variables();
+  init_lcd();
 
   /* Open I2C connection */
   #ifndef SIMULATION
@@ -34,9 +34,12 @@ void I2C_LCD::init_parameters() {
 }
 
 
-void I2C_LCD::init_variables() {
-  /* Compute initial values */
+void I2C_LCD::init_lcd() {
+  /* Initialize LCD */
+  this->lcd.begin(16, 2);
 
+  this->lcd.on();
+  this->lcd.clear();
 }
 
 void I2C_LCD::msg_text_callback(const lcd_msgs::msg::Lcd::SharedPtr msg) {
