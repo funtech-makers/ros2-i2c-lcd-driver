@@ -43,7 +43,7 @@ void I2C_LCD::msg_text_callback(const lcd_msgs::msg::Lcd::SharedPtr msg) {
   #ifndef SIMULATION
   (msg->autoscroll)?this->lcd->autoscroll():this->lcd->noAutoscroll();
   this->lcd->setCursor(msg->line, msg->column);
-  this->lcd->write(msg->text);
+  this->lcd->print(msg->text.c_str());
   #else
   RCLCPP_INFO(this->get_logger(), "cursor(%d, %d) : text(%s)", msg->line, msg->column, msg->text.c_str());
   #endif /* SIMULATION */
