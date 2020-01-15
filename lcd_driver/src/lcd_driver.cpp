@@ -11,7 +11,7 @@ I2C_LCD::I2C_LCD() : Node("lcd_driver") {
   /* Open I2C connection */
   #ifndef SIMULATION
   std::string i2c_device = "/dev/i2c-" + std::to_string(i2c_bus);
-  lcd = std::make_shared<LiquidCrystal_I2C>(i2c_device, i2c_addr);
+  lcd = std::make_shared<LiquidCrystal_I2C>(&i2c_device, i2c_addr);
   #endif /* SIMULATION */
 
   /* Init ROS Publishers and Subscribers */
