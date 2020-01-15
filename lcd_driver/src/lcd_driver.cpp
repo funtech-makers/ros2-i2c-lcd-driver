@@ -5,14 +5,13 @@ I2C_LCD::I2C_LCD() : Node("lcd_driver") {
   /* Init parametrers from YAML */
   init_parameters();
 
-  /* Give variables their initial values */
-  init_lcd();
-
   /* Open I2C connection */
   #ifndef SIMULATION
   std::string i2c_device = "/dev/i2c-" + std::to_string(i2c_bus);
   lcd = std::make_shared<LiquidCrystal_I2C>(i2c_device.c_str(), i2c_addr);
   #endif /* SIMULATION */
+
+  init_lcd();
 
   /* Init ROS Publishers and Subscribers */
   auto qos = rclcpp::QoS(rclcpp::KeepLast(10));
