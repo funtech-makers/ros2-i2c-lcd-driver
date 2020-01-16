@@ -59,7 +59,7 @@ void I2C_LCD::init_parameters() {
 
 void I2C_LCD::init_lcd() {
   /* Initialize LCD */
-  this->lcd->begin(16, 2);
+  this->lcd->begin(lcd_cols, lcd_rows);
 
   this->lcd->on();
   this->lcd->clear();
@@ -67,7 +67,7 @@ void I2C_LCD::init_lcd() {
 
 void I2C_LCD::msg_text_callback(const lcd_msgs::msg::Lcd::SharedPtr msg) {
   #ifndef SIMULATION
-  this->lcd->setCursor(msg->line, msg->column);
+  // this->lcd->setCursor(msg->line, msg->column);
   this->lcd->print(msg->text.c_str());
   #endif /* SIMULATION */
   RCLCPP_INFO(this->get_logger(), "cursor(%d, %d) : text(%s)", msg->line, msg->column, msg->text.c_str());
