@@ -19,6 +19,16 @@ public:
 private:
   int i2c_bus;
   int i2c_addr;
+  int p_en;
+  int p_rw;
+  int p_rs;
+  int p_d4;
+  int p_d5;
+  int p_d6;
+  int p_d7;
+  int p_bl;
+  int lcd_rows;
+  int lcd_cols;
   #ifndef SIMULATION
   // For communicating with I2C_LCD over I2C
   std::shared_ptr<LiquidCrystal_I2C> lcd;
