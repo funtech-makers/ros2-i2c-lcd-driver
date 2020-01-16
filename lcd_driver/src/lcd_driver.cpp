@@ -44,7 +44,7 @@ void I2C_LCD::init_parameters() {
 
   this->get_parameter_or<int>("pins.en", p_en, 2);
   this->get_parameter_or<int>("pins.rw", p_rw, 1);
-  this->get_parameter_or<int>("pins.rs", p_en, 0);
+  this->get_parameter_or<int>("pins.rs", p_rs, 0);
   this->get_parameter_or<int>("pins.d4", p_d4, 4);
   this->get_parameter_or<int>("pins.d5", p_d5, 5);
   this->get_parameter_or<int>("pins.d6", p_d6, 6);
