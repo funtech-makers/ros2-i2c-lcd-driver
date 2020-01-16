@@ -29,6 +29,7 @@ private:
   int p_bl;
   int lcd_rows;
   int lcd_cols;
+  std::string banner;
   #ifndef SIMULATION
   // For communicating with I2C_LCD over I2C
   std::shared_ptr<LiquidCrystal_I2C> lcd;
@@ -37,7 +38,6 @@ private:
   // ROS topic publishers
   rclcpp::Subscription<lcd_msgs::msg::Lcd>::SharedPtr lcd_driver_text_sub_;
 
-  void init_lcd();
   void init_parameters();
   void msg_text_callback(const lcd_msgs::msg::Lcd::SharedPtr msg);
 };

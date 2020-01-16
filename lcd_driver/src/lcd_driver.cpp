@@ -10,7 +10,11 @@ I2C_LCD::I2C_LCD() : Node("lcd_driver") {
   std::string i2c_device = "/dev/i2c-" + std::to_string(i2c_bus);
   lcd = std::make_shared<LiquidCrystal_I2C>(i2c_device.c_str(), i2c_addr, p_en, p_rw, p_rs, p_d4, p_d5, p_d6, p_d7, p_bl, POSITIVE);
 
-  init_lcd();
+  /* Initialize LCD */
+  this->lcd->begin(lcd_cols, lcd_rows);
+  this->lcd->on();
+  this->lcd->clear();
+  this->lcd->print(banner.c_str());
   #endif /* SIMULATION */
 
   /* Init ROS Publishers and Subscribers */
@@ -36,6 +40,7 @@ void I2C_LCD::init_parameters() {
   this->declare_parameter("pins.backlight");
   this->declare_parameter("lcd.rows");
   this->declare_parameter("lcd.cols");
+  this->declare_parameter("banner");
 
 
   // Get parameters from yaml
@@ -54,16 +59,10 @@ void I2C_LCD::init_parameters() {
 
   this->get_parameter_or<int>("lcd.rows", lcd_rows, 2);
   this->get_parameter_or<int>("lcd.cols", lcd_cols, 16);
+
+  this->get_parameter_or<std::string>("banner", banner, "Hello Bot !");
 }
 
-
-void I2C_LCD::init_lcd() {
-  /* Initialize LCD */
-  this->lcd->begin(lcd_cols, lcd_rows);
-
-  this->lcd->on();
-  this->lcd->clear();
-}
 
 void I2C_LCD::msg_text_callback(const lcd_msgs::msg::Lcd::SharedPtr msg) {
   #ifndef SIMULATION
