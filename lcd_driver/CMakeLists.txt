@@ -48,7 +48,6 @@ else()
     src/I2CIO.cpp
     src/LCD.cpp
     src/LiquidCrystal_I2C.cpp
-    src/LiquidCrystal.cpp
   )
   target_link_libraries(${EXEC_NAME} i2c)
 endif(SIMULATION)
