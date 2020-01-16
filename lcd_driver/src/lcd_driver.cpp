@@ -9,9 +9,9 @@ I2C_LCD::I2C_LCD() : Node("lcd_driver") {
   #ifndef SIMULATION
   std::string i2c_device = "/dev/i2c-" + std::to_string(i2c_bus);
   lcd = std::make_shared<LiquidCrystal_I2C>(i2c_device.c_str(), i2c_addr, p_en, p_rw, p_rs, p_d4, p_d5, p_d6, p_d7, p_bl, POSITIVE);
-  #endif /* SIMULATION */
 
   init_lcd();
+  #endif /* SIMULATION */
 
   /* Init ROS Publishers and Subscribers */
   auto qos = rclcpp::QoS(rclcpp::KeepLast(10));
