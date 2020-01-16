@@ -67,10 +67,11 @@ void I2C_LCD::init_lcd() {
 
 void I2C_LCD::msg_text_callback(const lcd_msgs::msg::Lcd::SharedPtr msg) {
   #ifndef SIMULATION
-  // this->lcd->setCursor(msg->line, msg->column);
+  (msg->autoscroll)?this->lcd->autoscroll():this->lcd->noAutoscroll();
+  this->lcd->setCursor(msg->column, msg->line);
   this->lcd->print(msg->text.c_str());
   #endif /* SIMULATION */
-  RCLCPP_INFO(this->get_logger(), "cursor(%d, %d) : text(%s)", msg->line, msg->column, msg->text.c_str());
+  RCLCPP_INFO(this->get_logger(), "cursor(%d, %d) : text(%s)", msg->column, msg->line, msg->text.c_str());
 }
 
 I2C_LCD::~I2C_LCD() {
