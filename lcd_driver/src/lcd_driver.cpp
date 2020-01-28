@@ -74,6 +74,8 @@ void I2C_LCD::msg_text_callback(const lcd_msgs::msg::Lcd::SharedPtr msg) {
 }
 
 I2C_LCD::~I2C_LCD() {
+  #ifndef SIMULATION
   this->lcd->off();
+  #endif /* SIMULATION */
   RCLCPP_INFO(this->get_logger(), "I2C_LCD Node Terminated");
 }
