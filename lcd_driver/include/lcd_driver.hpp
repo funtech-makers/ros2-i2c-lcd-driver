@@ -1,15 +1,13 @@
 #ifndef I2C_LCD_HEADER_HPP
 #define I2C_LCD_HEADER_HPP
 
-#include <string>
-#include <rclcpp/rclcpp.hpp>
 #include "lcd_msgs/msg/lcd.hpp"
+#include <rclcpp/rclcpp.hpp>
+#include <string>
 
 #ifndef SIMULATION
 #include "LiquidCrystal_I2C.h"
 #endif /* SIMULATION */
-
-
 
 class I2C_LCD : public rclcpp::Node {
 public:
@@ -30,10 +28,10 @@ private:
   int lcd_rows;
   int lcd_cols;
   std::string banner;
-  #ifndef SIMULATION
+#ifndef SIMULATION
   // For communicating with I2C_LCD over I2C
   std::shared_ptr<LiquidCrystal_I2C> lcd;
-  #endif /* SIMULAtION */
+#endif /* SIMULAtION */
 
   // ROS topic publishers
   rclcpp::Subscription<lcd_msgs::msg::Lcd>::SharedPtr lcd_driver_text_sub_;

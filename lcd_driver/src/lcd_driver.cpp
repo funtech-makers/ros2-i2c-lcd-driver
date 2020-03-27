@@ -1,12 +1,11 @@
 #include "lcd_driver.hpp"
 
-
 I2C_LCD::I2C_LCD() : Node("lcd_driver") {
   /* Init parametrers from YAML */
   init_parameters();
 
-  /* Open I2C connection */
-  #ifndef SIMULATION
+/* Open I2C connection */
+#ifndef SIMULATION
   std::string i2c_device = "/dev/i2c-" + std::to_string(i2c_bus);
   lcd = std::make_shared<LiquidCrystal_I2C>(i2c_device.c_str(), i2c_addr, p_en, p_rw, p_rs, p_d4, p_d5, p_d6, p_d7, p_bl, POSITIVE);
 
@@ -15,7 +14,7 @@ I2C_LCD::I2C_LCD() : Node("lcd_driver") {
   this->lcd->on();
   this->lcd->clear();
   this->lcd->print(banner.c_str());
-  #endif /* SIMULATION */
+#endif /* SIMULATION */
 
   /* Init ROS Publishers and Subscribers */
   auto qos = rclcpp::QoS(rclcpp::KeepLast(10));
@@ -24,7 +23,6 @@ I2C_LCD::I2C_LCD() : Node("lcd_driver") {
 
   RCLCPP_INFO(this->get_logger(), "LCD I2C driver initialised");
 }
-
 
 void I2C_LCD::init_parameters() {
   // Declare parameters that may be set on this node
@@ -41,7 +39,6 @@ void I2C_LCD::init_parameters() {
   this->declare_parameter("lcd.rows");
   this->declare_parameter("lcd.cols");
   this->declare_parameter("banner");
-
 
   // Get parameters from yaml
   this->get_parameter_or<int>("i2c_bus", i2c_bus, 6);
@@ -63,19 +60,18 @@ void I2C_LCD::init_parameters() {
   this->get_parameter_or<std::string>("banner", banner, "Hello Bot !");
 }
 
-
 void I2C_LCD::msg_text_callback(const lcd_msgs::msg::Lcd::SharedPtr msg) {
-  #ifndef SIMULATION
-  (msg->autoscroll)?this->lcd->autoscroll():this->lcd->noAutoscroll();
+#ifndef SIMULATION
+  (msg->autoscroll) ? this->lcd->autoscroll() : this->lcd->noAutoscroll();
   this->lcd->setCursor(msg->column, msg->line);
   this->lcd->print(msg->text.c_str());
-  #endif /* SIMULATION */
+#endif /* SIMULATION */
   RCLCPP_INFO(this->get_logger(), "cursor(%d, %d) : text(%s)", msg->column, msg->line, msg->text.c_str());
 }
 
 I2C_LCD::~I2C_LCD() {
-  #ifndef SIMULATION
+#ifndef SIMULATION
   this->lcd->off();
-  #endif /* SIMULATION */
+#endif /* SIMULATION */
   RCLCPP_INFO(this->get_logger(), "I2C_LCD Node Terminated");
 }

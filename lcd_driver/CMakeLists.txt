@@ -50,7 +50,7 @@ else()
     src/LiquidCrystal_I2C.cpp
   )
   target_link_libraries(${EXEC_NAME} i2c)
-endif(SIMULATION)
+endif()
 
 
 ament_target_dependencies(${EXEC_NAME} ${dependencies})

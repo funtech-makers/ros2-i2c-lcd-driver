@@ -154,7 +154,7 @@ void LCD::home() {
 }
 
 void LCD::setCursor(uint8_t col, uint8_t row) {
-  const uint8_t row_offsetsDef[] = {0x00, 0x40, 0x14, 0x54}; // For regular LCDs
+  const uint8_t row_offsetsDef[] = {0x00, 0x40, 0x14, 0x54};   // For regular LCDs
   const uint8_t row_offsetsLarge[] = {0x00, 0x40, 0x10, 0x50}; // For 16x4 LCDs
 
   if (row >= _numlines) {
@@ -203,13 +203,9 @@ void LCD::blink() {
 }
 
 // These commands scroll the display without changing the RAM
-void LCD::scrollDisplayLeft(void) {
-  command(LCD_CURSORSHIFT | LCD_DISPLAYMOVE | LCD_MOVELEFT);
-}
+void LCD::scrollDisplayLeft(void) { command(LCD_CURSORSHIFT | LCD_DISPLAYMOVE | LCD_MOVELEFT); }
 
-void LCD::scrollDisplayRight(void) {
-  command(LCD_CURSORSHIFT | LCD_DISPLAYMOVE | LCD_MOVERIGHT);
-}
+void LCD::scrollDisplayRight(void) { command(LCD_CURSORSHIFT | LCD_DISPLAYMOVE | LCD_MOVERIGHT); }
 
 // This is for text that flows Left to Right
 void LCD::leftToRight(void) {
@@ -224,14 +220,10 @@ void LCD::rightToLeft(void) {
 }
 
 // This method moves the cursor one space to the right
-void LCD::moveCursorRight(void) {
-  command(LCD_CURSORSHIFT | LCD_CURSORMOVE | LCD_MOVERIGHT);
-}
+void LCD::moveCursorRight(void) { command(LCD_CURSORSHIFT | LCD_CURSORMOVE | LCD_MOVERIGHT); }
 
 // This method moves the cursor one space to the left
-void LCD::moveCursorLeft(void) {
-  command(LCD_CURSORSHIFT | LCD_CURSORMOVE | LCD_MOVELEFT);
-}
+void LCD::moveCursorLeft(void) { command(LCD_CURSORSHIFT | LCD_CURSORMOVE | LCD_MOVELEFT); }
 
 // This will 'right justify' text from the cursor
 void LCD::autoscroll(void) {

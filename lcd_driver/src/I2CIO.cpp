@@ -27,15 +27,15 @@
 
 #include "I2CIO.h"
 extern "C" {
-  #include <linux/i2c.h>
-  #include <linux/i2c-dev.h>
-  #include <i2c/smbus.h>
-  #include <fcntl.h>
-  #include <inttypes.h>
-  #include <sys/ioctl.h>
-  #include <sys/stat.h>
-  #include <sys/types.h>
-  #include <unistd.h>
+#include <fcntl.h>
+#include <i2c/smbus.h>
+#include <inttypes.h>
+#include <linux/i2c-dev.h>
+#include <linux/i2c.h>
+#include <sys/ioctl.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <unistd.h>
 }
 
 // CLASS VARIABLES
